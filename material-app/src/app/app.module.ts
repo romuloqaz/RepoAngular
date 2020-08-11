@@ -10,10 +10,13 @@ import {MatInputModule} from '@angular/material/input';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatSelectModule} from '@angular/material/select';
+import {MatDividerModule} from '@angular/material/divider';
+import { FormsModule } from '@angular/forms';
 
 import { StringInterpolationComponent } from './string-interpolation/string-interpolation.component';
 import { PropertyBindingComponent } from './property-binding/property-binding.component';
 import { EventBindingComponent } from './event-binding/event-binding.component';
+import { TwoWayDataBindingComponent } from './two-way-data-binding/two-way-data-binding.component';
 
 
 @NgModule({
@@ -21,7 +24,8 @@ import { EventBindingComponent } from './event-binding/event-binding.component';
     AppComponent,
     StringInterpolationComponent,
     PropertyBindingComponent,
-    EventBindingComponent
+    EventBindingComponent,
+    TwoWayDataBindingComponent
   ],
   imports: [
     BrowserModule,
@@ -32,7 +36,9 @@ import { EventBindingComponent } from './event-binding/event-binding.component';
     MatInputModule,
     MatProgressSpinnerModule,
     MatCheckboxModule,
-    MatSelectModule
+    MatSelectModule,
+    MatDividerModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

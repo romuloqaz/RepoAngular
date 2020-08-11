@@ -14,6 +14,7 @@ export class EventBindingComponent implements OnInit {
   btnEnable = true;
   selectDisabled= false;
   selectedOption = 1;
+  inputName = "John"
 
   ngOnInit(): void {
   }
@@ -45,5 +46,9 @@ export class EventBindingComponent implements OnInit {
     console.log(event);
     this.selectedOption = event.value;
   }
+
+  // inputEvent(event){
+  //   console.log(event.target.value);
+  // }
 
 }
