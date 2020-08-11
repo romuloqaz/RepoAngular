@@ -10,12 +10,15 @@ import {MatInputModule} from '@angular/material/input';
 
 import { StringInterpolationComponent } from './string-interpolation/string-interpolation.component';
 import { PropertyBindingComponent } from './property-binding/property-binding.component';
+import { EventBindingComponent } from './event-binding/event-binding.component';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 @NgModule({
   declarations: [
     AppComponent,
     StringInterpolationComponent,
-    PropertyBindingComponent
+    PropertyBindingComponent,
+    EventBindingComponent
   ],
   imports: [
     BrowserModule,
@@ -23,7 +26,8 @@ import { PropertyBindingComponent } from './property-binding/property-binding.co
     MatButtonModule,
     MatCardModule,
     MatIconModule,
-    MatInputModule
+    MatInputModule,
+    MatProgressSpinnerModule
   ],
   providers: [],
   bootstrap: [AppComponent]
