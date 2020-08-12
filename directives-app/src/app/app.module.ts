@@ -13,6 +13,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatListModule } from '@angular/material/list';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { NgClassComponent } from './ng-class/ng-class.component';
@@ -21,6 +22,7 @@ import { SubNgIfComponent } from './ng-if/sub-ng-if/sub-ng-if.component';
 import { NgForComponent } from './ng-for/ng-for.component';
 import { MatDividerModule } from '@angular/material/divider';
 import { NgForFormComponent } from './ng-for-form/ng-for-form.component';
+import { NgSwitchComponent } from './ng-switch/ng-switch.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +32,8 @@ import { NgForFormComponent } from './ng-for-form/ng-for-form.component';
     NgIfComponent,
     SubNgIfComponent,
     NgForComponent,
-    NgForFormComponent
+    NgForFormComponent,
+    NgSwitchComponent
   ],
   imports: [
     BrowserModule,
@@ -45,7 +48,8 @@ import { NgForFormComponent } from './ng-for-form/ng-for-form.component';
     MatIconModule,
     MatDividerModule,
     MatFormFieldModule,
-    MatButtonModule
+    MatButtonModule,
+    MatProgressBarModule
   ],
   providers: [],
   bootstrap: [AppComponent]
