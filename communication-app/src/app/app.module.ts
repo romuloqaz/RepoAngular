@@ -20,6 +20,8 @@ import { InputBindingComponent } from './input-binding/input-binding.component';
 import { ClientComponent } from './input-binding/client/client.component';
 import { EventComponent } from './event/event.component';
 import { ChildItemComponent } from './event/child-item/child-item.component';
+import { ClientsComponent } from './clients/clients.component';
+import { ItemClientComponent } from './clients/item-client/item-client.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +29,9 @@ import { ChildItemComponent } from './event/child-item/child-item.component';
     InputBindingComponent,
     ClientComponent,
     EventComponent,
-    ChildItemComponent
+    ChildItemComponent,
+    ClientsComponent,
+    ItemClientComponent
   ],
   imports: [
     BrowserModule,
