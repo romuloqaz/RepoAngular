@@ -7,9 +7,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NgContentComponent implements OnInit {
 
+  like = 0;
+
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  liker(){
+    this.like+=1
+  }
 }
