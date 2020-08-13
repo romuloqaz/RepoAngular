@@ -7,9 +7,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TimerComponent implements OnInit {
 
-  private miliseconds: number= 0 ;
-  private interval : any;
-  private running = false;
+   miliseconds: number= 0 ;
+   interval : any;
+   running = false;
 
   constructor() { }
 
@@ -36,7 +36,7 @@ export class TimerComponent implements OnInit {
     this.miliseconds = 0;
   }
 
-  private round(n: number) : number {
+   round(n: number) : number {
     return Math.round(n);
   }
 }
