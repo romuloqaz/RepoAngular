@@ -5,7 +5,6 @@ import { CommonModule } from '@angular/common';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import { MatAutocomplete } from "@angular/material/autocomplete"
 import { MatBadgeModule } from '@angular/material/badge';
 import { MatBottomSheetModule } from '@angular/material/bottom-sheet';
 import { MatButtonModule } from '@angular/material/button';
@@ -93,7 +92,6 @@ import { ProductsTableComponent } from './products-table/products-table.componen
     MatProgressBarModule,
     MatProgressSpinnerModule,
     FlexLayoutModule,
-    MatAutocomplete,
     MatChipsModule
 
   ],
