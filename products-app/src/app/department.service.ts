@@ -25,4 +25,8 @@ export class DepartmentService {
     this.departments.push({...d, id: this.nextID++});
     console.log(this.departments);
   }
+
+  getDepartmentById(id: number): Department{
+    return this.departments.find((d) => d.id == id);
+  }
 }
