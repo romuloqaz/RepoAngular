@@ -42,11 +42,13 @@ import { MatTreeModule } from '@angular/material/tree';
 import { FormsModule } from '@angular/forms';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { BasicComponent } from './basic/basic.component';
+import { ColdObservablesComponent } from './cold-observables/cold-observables.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    BasicComponent
+    BasicComponent,
+    ColdObservablesComponent
   ],
   imports: [
     BrowserModule,
