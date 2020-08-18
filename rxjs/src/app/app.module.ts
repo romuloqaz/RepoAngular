@@ -46,6 +46,7 @@ import { OperatorsComponent } from './operators/operators.component';
 import { AsyncComponent } from './async/async.component';
 import { ErrorHandlingComponent } from './error-handling/error-handling.component';
 import { DragAndDropComponent } from './drag-and-drop/drag-and-drop.component';
+import { UnsubscribeComponent } from './unsubscribe/unsubscribe.component';
 
 @NgModule({
   declarations: [
@@ -54,7 +55,8 @@ import { DragAndDropComponent } from './drag-and-drop/drag-and-drop.component';
     OperatorsComponent,
     AsyncComponent,
     ErrorHandlingComponent,
-    DragAndDropComponent
+    DragAndDropComponent,
+    UnsubscribeComponent
   ],
   imports: [
     BrowserModule,
