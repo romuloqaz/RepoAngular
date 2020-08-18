@@ -119,10 +119,29 @@ export class OperatorsComponent implements OnInit {
 
   debounceTimeSearch() {
     this.searchEntry$
-      .pipe(debounceTime(500))
+      .pipe(debounceTime(500)) //debounce espera o tempo para subscrever
       .subscribe((s)=> console.log(s))
   }
+  takeWhileClick() {
+    interval(500)
+    .pipe( takeWhile((value,index) => (value<5)) ) // condicao para se subscrever no evento
+    .subscribe(
+      (i) => console.log('takeWhile: ', i),
+      (error) => console.error(error),
+      () => console.log('Completed!'));
+  }
 
+  takeUntilSearch() {
+
+    let duetime$ = timer(5000); // vai emitir o evento no 5 segundo. ate o 9 pois vai de 500 500 ms
+
+    interval(500)
+    .pipe( takeUntil(duetime$) )
+    .subscribe(
+      (i) => console.log('takeWhile: ', i),
+      (error) => console.error(error),
+      () => console.log('Completed!'));
+  }
 
 
 }
