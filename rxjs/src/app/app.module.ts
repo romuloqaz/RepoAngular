@@ -43,12 +43,14 @@ import { FormsModule } from '@angular/forms';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { BasicCreationComponent } from './basic-creation/basic-creation.component';
 import { OperatorsComponent } from './operators/operators.component';
+import { AsyncComponent } from './async/async.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     BasicCreationComponent,
-    OperatorsComponent
+    OperatorsComponent,
+    AsyncComponent
   ],
   imports: [
     BrowserModule,
