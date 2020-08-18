@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { from, fromEvent } from 'rxjs';
-import { map, delay } from 'rxjs/operators';
+import { from, fromEvent, interval } from 'rxjs';
+import { map, delay, filter } from 'rxjs/operators';
 
 @Component({
   selector: 'app-operators',
@@ -28,6 +28,20 @@ export class OperatorsComponent implements OnInit {
         map((e: MouseEvent) => ({x: e.screenX, y: e.screenY}))
       )
       .subscribe((pos) => console.log(pos)); 
+  }
+
+  filterClick(){
+    from([1,2,3,4,5,6,7])
+    .pipe(
+      filter(i => i%2==1)
+    )
+    .subscribe(i => console.log(i));
+    interval(1000)
+    .pipe(
+      filter(i => i%2==0),
+      map(i => "value: " +i),
+      delay(1000))
+    .subscribe(i=> console.log(i))
   }
 
 }
