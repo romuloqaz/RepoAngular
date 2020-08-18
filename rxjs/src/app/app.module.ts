@@ -44,13 +44,15 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { BasicCreationComponent } from './basic-creation/basic-creation.component';
 import { OperatorsComponent } from './operators/operators.component';
 import { AsyncComponent } from './async/async.component';
+import { ErrorHandlingComponent } from './error-handling/error-handling.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     BasicCreationComponent,
     OperatorsComponent,
-    AsyncComponent
+    AsyncComponent,
+    ErrorHandlingComponent
   ],
   imports: [
     BrowserModule,
