@@ -33,7 +33,7 @@ export class UnsubscribeComponent implements OnInit {
   
   subscribe() {
     const subscription1 = interval(100)
-      .pipe(takeUntil(this.unsubscribeAll$)) //take until captura evento ate acontecer o unsubscribe
+      .pipe(takeUntil(this.unsubscribeAll$)) //take until captura evento ate acontecer o unsubscribe. da o complete
       .subscribe((i)=>{ console.log(i);})
     const subscription2 = fromEvent(document, 'mousemove')
       .pipe(takeUntil(this.unsubscribeAll$))
