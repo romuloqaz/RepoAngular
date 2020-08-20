@@ -47,6 +47,8 @@ import { AsyncComponent } from './async/async.component';
 import { ErrorHandlingComponent } from './error-handling/error-handling.component';
 import { DragAndDropComponent } from './drag-and-drop/drag-and-drop.component';
 import { UnsubscribeComponent } from './unsubscribe/unsubscribe.component';
+import { SwitchMergeComponent } from './switch-merge/switch-merge.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -56,7 +58,8 @@ import { UnsubscribeComponent } from './unsubscribe/unsubscribe.component';
     AsyncComponent,
     ErrorHandlingComponent,
     DragAndDropComponent,
-    UnsubscribeComponent
+    UnsubscribeComponent,
+    SwitchMergeComponent
   ],
   imports: [
     BrowserModule,
@@ -99,7 +102,8 @@ import { UnsubscribeComponent } from './unsubscribe/unsubscribe.component';
     MatProgressBarModule,
     MatProgressSpinnerModule,
     FlexLayoutModule,
-    MatChipsModule
+    MatChipsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
