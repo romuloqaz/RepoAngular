@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChild, ElementRef, AfterViewInit } from '@angula
 import { Observable, fromEvent, of } from 'rxjs';
 import { Person } from './person.model';
 import { HttpClient } from '@angular/common/http';
-import { mergeMap } from 'rxjs/operators';
+import { mergeMap, debounceTime, switchMap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-switch-merge',
@@ -23,7 +23,8 @@ export class SwitchMergeComponent implements OnInit, AfterViewInit {
  
   ngAfterViewInit(): void {
     // this.firstOption()
-    this.secondOption();
+    // this.secondOption();
+    this.thirdOption();
   }
 
   filterPeople(searchInput: string): Observable<Person[]> {
@@ -32,6 +33,19 @@ export class SwitchMergeComponent implements OnInit, AfterViewInit {
     return this.http.get<Person[]>(`${this.url}/${searchInput}`);
   }
 
+  thirdOption() {
+    let keyup$ = fromEvent(this.el.nativeElement, 'keyup'); 
+    /*
+    this.people$ = keyup$
+      .pipe(map( (e) => this.filterPeople(this.searchInput)))
+      .pipe(switchAll()); // espera o tempo da requisição para trazer os dados e cancela as outras digitadas
+    */
+   this.people$ = keyup$
+    .pipe(
+      debounceTime(700), // espera esse tempo para solicitar a requisição
+      switchMap(()=>this.filterPeople(this.searchInput)))
+
+  }
   secondOption() {
     let keyup$ = fromEvent(this.el.nativeElement, 'keyup'); 
 
@@ -42,8 +56,9 @@ export class SwitchMergeComponent implements OnInit, AfterViewInit {
       .subscribe((data) => console.log(data));
     this.people$ = fetch$.pipe(mergeAll());
     */
-
-   this.people$ = keyup$.pipe(mergeMap( (e) => this.filterPeople(this.searchInput)));
+   
+  
+   this.people$ = keyup$.pipe(mergeMap( (e) => this.filterPeople(this.searchInput))); 
    
   }
 
