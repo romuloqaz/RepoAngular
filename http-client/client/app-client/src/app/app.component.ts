@@ -98,4 +98,45 @@ export class AppComponent {
         }
       }));
   }
+
+  saveProduct(name: string, department: string, price: number) {
+    let p = {name, department, price};
+    this.productsService.saveProduct(p)
+      .subscribe(
+        (p: Product) => {
+          console.log(p);
+          this.newlyProducts.push(p);
+        },
+        (err) => {
+          console.log(err);
+          let config = new MatSnackBarConfig();
+          config.duration = 2000;
+          config.panelClass = ['snack_err'];
+          if (err.status == 0)
+            this.snackBar.open('Could not connect to the server', '', config);
+          else
+            this.snackBar.open(err.error.msg, '', config);          
+        }
+      );
+  }
+
+  loadProductsToDelete(){
+    this.productsService.getProducts()
+      .subscribe((prods) => this.productsToDelete = prods);
+  }
+
+  deleteProduct(p: Product){
+    this.productsService.deleteProduct(p)
+      .subscribe(
+        (res)=> {
+          let i = this.productsToDelete.findIndex(prod => p._id == prod._id);
+          if(i >= 0){
+            this.productsToDelete.splice(i, 1)
+          }
+        },
+      (err) => {
+        console.log(err)
+      }
+      );
+  }
 }
