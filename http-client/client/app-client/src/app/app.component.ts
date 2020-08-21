@@ -12,7 +12,9 @@ import { MatSnackBar, MatSnackBarConfig } from '@angular/material/snack-bar';
 export class AppComponent {
 
   simpleReqProductsObs$: Observable<Product[]>;
-  productsErrorHandling: Product[]
+  productsErrorHandling: Product[];
+  productsLoading: Product[];
+  bLoading : boolean = false;
 
   constructor (
     private productService: ProductsService,
@@ -59,5 +61,19 @@ export class AppComponent {
             console.log(err);
           }
         )
+    }
+    getProductsLoading() {
+      this.bLoading = true;
+      this.productService.getProductsDelay()
+        .subscribe(
+          (prods) => { 
+            this.productsLoading = prods; 
+            this.bLoading = false;
+          },
+          (err) => {
+            console.log(err);
+            this.bLoading = false;
+          }
+        )    
     }
 }
