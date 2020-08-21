@@ -42,10 +42,12 @@ import { MatTreeModule } from '@angular/material/tree';
 import { FormsModule } from '@angular/forms';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { HttpClientModule } from '@angular/common/http';
+import { DialogEditProductComponent } from './dialog-edit-product/dialog-edit-product.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    DialogEditProductComponent
   ],
   imports: [
     BrowserModule,
@@ -92,6 +94,9 @@ import { HttpClientModule } from '@angular/common/http';
     HttpClientModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [
+    DialogEditProductComponent
+  ]
 })
 export class AppModule { }

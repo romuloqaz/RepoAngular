@@ -1,8 +1,11 @@
 import { Component } from '@angular/core';
 import { ProductsService } from './products.service';
 import { Observable } from 'rxjs';
+import { filter, switchMap } from 'rxjs/operators';
 import { Product } from './Product.model';
 import { MatSnackBar, MatSnackBarConfig, } from '@angular/material/snack-bar';
+import { MatDialog } from '@angular/material/dialog';
+import { DialogEditProductComponent } from './dialog-edit-product/dialog-edit-product.component';
 
 @Component({
   selector: 'app-root',
@@ -22,7 +25,8 @@ export class AppComponent {
 
   constructor(
     private productsService: ProductsService,
-    private snackBar: MatSnackBar,) {}
+    private snackBar: MatSnackBar,
+    private dialog: MatDialog) {}
   
   ngOnInit() {
   }
@@ -134,9 +138,51 @@ export class AppComponent {
             this.productsToDelete.splice(i, 1)
           }
         },
-      (err) => {
-        console.log(err)
-      }
+        (err) => {
+          console.log(err)
+        }
       );
   }
+
+  loadProductsToEdit() {
+    this.productsService.getProducts()
+      .subscribe((prods) => this.productsToEdit = prods);
+  }
+
+  editProduct(p: Product) {
+    let newProduct: Product = {...p};
+    let dialogRef = this.dialog.open(DialogEditProductComponent, {width: '400px', data: newProduct});
+    dialogRef.afterClosed()
+      .pipe(
+        filter( (prod: Product)=> prod!=undefined),
+        switchMap((prod: Product) => this.productsService.editProduct(prod)))
+      .subscribe(
+        (prod: Product,) => {
+          let i = this.productsToEdit.findIndex(p=>p._id== prod._id); 
+          if (i>=0)
+            this.productsToEdit[i] = prod;
+        },
+        (err) => console.error(err)
+      )
+  }
+
+  // editProduct(p: Product) {
+  //   let newProduct: Product = {...p};
+  //   let dialogRef = this.dialog.open(DialogEditProductComponent, {width: '400px', data: newProduct});
+
+  //   dialogRef.afterClosed()
+  //     .subscribe((res: Product)=> {
+  //       //console.log(res);
+  //       if (res) {
+  //         this.productsService.editProduct(res)
+  //           .subscribe(
+  //             (resp) => {
+  //               let i = this.productsToEdit.findIndex(prod=>p._id== prod._id); 
+  //               if (i>=0)
+  //                 this.productsToEdit[i] = resp;
+  //             },
+  //             (err) => console.error(err)
+  //           )
+  //       }
+  //     });
 }
