@@ -19,4 +19,8 @@ export class ProductsService {
   getProductsError(){
     return this.http.get<Product[]>(`${this.url}/productserr`)
   }
+  
+  getProductsDelay(){
+    return this.http.get<Product[]>(`${this.url}/productsdelay`)
+  }
 }

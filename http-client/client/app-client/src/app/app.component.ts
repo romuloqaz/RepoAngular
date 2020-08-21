@@ -46,6 +46,18 @@ export class AppComponent {
         )
     }
     getProductsWithErrorHandlingOK(){
-
+      this.productService.getProductsDelay()
+        .subscribe(
+          (prods) => { 
+            this.productsErrorHandling = prods; 
+            let config = new MatSnackBarConfig();
+            config.duration = 2000;
+            config.panelClass = ['snack_ok'];
+            this.snackBar.open('Products successfully loaded!', '', config);
+          },
+          (err) => {
+            console.log(err);
+          }
+        )
     }
 }
