@@ -24,6 +24,8 @@ export class TemplateDrivenFormComponent implements OnInit {
   client: Client = {
     firstName: "", lastName: "", birth: new Date(), gender: "", street: "", city: "", state: "", phone: "", phone2: ""
   }
+
+  states= ["SP","PR","SC","RS","PA","RO","MA",]
   constructor() { }
 
   ngOnInit(): void {
@@ -31,6 +33,6 @@ export class TemplateDrivenFormComponent implements OnInit {
   }
 
   onSubmit(){
-    
+    console.log(this.client)
   }
 }

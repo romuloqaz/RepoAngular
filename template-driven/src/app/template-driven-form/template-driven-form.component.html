@@ -9,26 +9,27 @@
   
         <mat-card-content fxLayout="column" fxLayoutAlign="stretch" >
           
-          <form fxLayout="column" fxLayoutAlign="start stretch">
+          <form fxLayout="column" fxLayoutAlign="start stretch" #formClient="ngForm" (ngSubmit)="onSubmit()"> 
   
             <div fxFlex="100"  fxLayout="row" fxLayoutAlign="space-between  start">
               <mat-form-field fxFlex="45" >  
-                <input matInput type="text" class="form-control" value="" placeholder="First Name" >
+                <input matInput type="text" class="form-control" value="" placeholder="First Name" [(ngModel)]="client.firstName" name="firstName">
               </mat-form-field> 
               <mat-form-field fxFlex="45">
-                <input matInput type="text" class="form-control" value="" placeholder="Last Name" >
+                <input matInput type="text" class="form-control" value="" placeholder="Last Name" [(ngModel)]="client.lastName" name="lastName">
               </mat-form-field>
             </div>
   
             <div fxFlex="100"  fxLayout="row" fxLayoutAlign="space-between  start">
   
               <mat-form-field fxFlex="45">
-                <input matInput  [matDatepicker]="dtbirth" placeholder="Date of Birth">
+                <input matInput  [matDatepicker]="dtbirth" placeholder="Date of Birth" [(ngModel)]="client.birth" name="birth">
                 <mat-datepicker-toggle matSuffix [for]="dtbirth"></mat-datepicker-toggle>
                 <mat-datepicker #dtbirth></mat-datepicker>
               </mat-form-field>
   
-              <mat-radio-group  fxFlex="45" fxLayout="column" fxLayoutAlign="space-between start" >
+              <mat-radio-group  fxFlex="45" fxLayout="column" fxLayoutAlign="space-between start" 
+                    [(ngModel)]="client.gender" name="gender">
                 <mat-radio-button value="Male" checked>Male</mat-radio-button>
                 <mat-radio-button value="Female">Female</mat-radio-button>
               </mat-radio-group>      
@@ -41,18 +42,16 @@
             <div fxFlex="100"  fxLayout="row" fxLayoutAlign="space-between start">
               <mat-form-field fxFlex="40" >  
                 <input matInput type="text" 
-                  class="form-control" value="" placeholder="Street" >
+                  class="form-control" value="" placeholder="Street" [(ngModel)]="client.street" name="street">
               </mat-form-field> 
               <mat-form-field fxFlex="30">
                 <input matInput type="text"  
-                  class="form-control" value="" placeholder="City" >
+                  class="form-control" value="" placeholder="City" [(ngModel)]="client.city" name="city">
               </mat-form-field>
    
               <mat-form-field fxFlex="20">
-                <mat-select placeholder="State"  >
-                  <mat-option value="Option 1">Option 1</mat-option>
-                  <mat-option value="Option 2">Option 2</mat-option>
-                  <mat-option value="Option 3">Option 3</mat-option>  
+                <mat-select placeholder="State"  [(ngModel)]="client.state" name="state">
+                  <mat-option *ngFor="let state of states" [value]="state">{{state}}</mat-option>
                 </mat-select>
               </mat-form-field>
             </div>
@@ -64,11 +63,13 @@
             <div fxFlex="100"  fxLayout="row wrap" fxLayoutAlign="space-between start" fxLayoutGap="20px">
               <mat-form-field fxFlex="45" >
                 <input matInput type="text"  
-                  class="form-control" value="" placeholder="Telephone 1 " >
+                  class="form-control" value="" placeholder="Telephone 1 " 
+                    [(ngModel)]="client.phone" name="phone">
               </mat-form-field>
               <mat-form-field fxFlex="45" >  
                 <input matInput type="text" 
-                  class="form-control" value="" placeholder="Telephone 2" >
+                  class="form-control" value="" placeholder="Telephone 2" 
+                    [(ngModel)]="client.phone2" name="phone2">
               </mat-form-field>
             </div>
   
