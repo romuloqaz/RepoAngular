@@ -36,7 +36,7 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatTreeModule } from '@angular/material/tree';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { HttpClientModule } from '@angular/common/http';
 import { MatNativeDateModule } from '@angular/material/core';
@@ -47,13 +47,15 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TemplateDrivenFormComponent } from './template-driven-form/template-driven-form.component';
 import { FormNativeValidationComponent } from './form-native-validation/form-native-validation.component';
 import { FormValidationComponent } from './form-validation/form-validation.component';
+import { FormControlComponent } from './form-control/form-control.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TemplateDrivenFormComponent,
     FormNativeValidationComponent,
-    FormValidationComponent
+    FormValidationComponent,
+    FormControlComponent
   ],
   imports: [
     BrowserModule,
@@ -99,7 +101,8 @@ import { FormValidationComponent } from './form-validation/form-validation.compo
     MatChipsModule,
     HttpClientModule,
     MatDatepickerModule,
-    MatNativeDateModule 
+    MatNativeDateModule,
+    ReactiveFormsModule
   ],
   providers: [
     MatDatepickerModule,
