@@ -50,6 +50,7 @@ import { FormValidationComponent } from './form-validation/form-validation.compo
 import { FormControlComponent } from './form-control/form-control.component';
 import { FormGroupComponent } from './form-group/form-group.component';
 import { FormBuilderComponent } from './form-builder/form-builder.component';
+import { FormArrayComponent } from './form-array/form-array.component';
 
 @NgModule({
   declarations: [
@@ -59,7 +60,8 @@ import { FormBuilderComponent } from './form-builder/form-builder.component';
     FormValidationComponent,
     FormControlComponent,
     FormGroupComponent,
-    FormBuilderComponent
+    FormBuilderComponent,
+    FormArrayComponent
   ],
   imports: [
     BrowserModule,
