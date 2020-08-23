@@ -23,7 +23,7 @@ export class ReactiveFormValidationComponent implements OnInit {
 
   constructor(private fb: FormBuilder) { }
 
-  ngOnInit(): void {
+  ngOnInit() {
   }
 
   onSubmit(){
