@@ -27,6 +27,6 @@ export class ReactiveFormValidationComponent implements OnInit {
   }
 
   onSubmit(){
-    console.log(this.clientForm.value)
+    console.log(this.clientForm.value);
   }
 }
