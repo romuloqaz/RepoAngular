@@ -26,4 +26,7 @@ export class ReactiveFormValidationComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  onSubmit(){
+    console.log(this.clientForm.value)
+  }
 }
