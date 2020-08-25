@@ -53,7 +53,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { DvdDetailComponent } from './dvd/dvd-detail/dvd-detail.component';
 import { DvdFormComponent } from './dvd/dvd-form/dvd-form.component';
 import { BookDetailComponent } from './book/book-detail/book-detail.component';
-import { BookAuthorsComponent } from './book/book-authors/book-authors.component'
+import { BookAuthorsComponent } from './book/book-authors/book-authors.component';
+import { EletronicsModule } from './eletronics/eletronics.module'
 
 
 @NgModule({
@@ -114,7 +115,8 @@ import { BookAuthorsComponent } from './book/book-authors/book-authors.component
     MatDatepickerModule,
     MatNativeDateModule,
     ReactiveFormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    EletronicsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
