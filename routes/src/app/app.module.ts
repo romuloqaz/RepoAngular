@@ -49,20 +49,16 @@ import { BookComponent } from './book/book.component';
 import { DvdComponent } from './dvd/dvd.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { Routes, RouterModule } from '@angular/router';
+import { AppRoutingModule } from './app-routing.module'
 
-const appRoutes : Routes = [
-  {path: 'dvds', component: DvdComponent},
-  {path: 'books', component: BookComponent},
-  {path: '', pathMatch: 'full', redirectTo: 'dvds'},
-  {path: '**', component: PageNotFoundComponent}
-]
 
 @NgModule({
   declarations: [
     AppComponent,
     BookComponent,
     DvdComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -110,7 +106,7 @@ const appRoutes : Routes = [
     MatDatepickerModule,
     MatNativeDateModule,
     ReactiveFormsModule,
-    RouterModule.forRoot(appRoutes)
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
