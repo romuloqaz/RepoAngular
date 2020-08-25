@@ -7,13 +7,20 @@ import { Routes, RouterModule } from '@angular/router';
 import { DvdDetailComponent } from './dvd/dvd-detail/dvd-detail.component';
 import { DvdFormComponent } from './dvd/dvd-form/dvd-form.component';
 import { BookDetailComponent } from './book/book-detail/book-detail.component';
+import { BookAuthorsComponent } from './book//book-authors/book-authors.component';
+
 
 const appRoutes : Routes = [
   {path: 'dvds', component: DvdComponent},
   {path: 'books', 
     component: BookComponent,
   children: [
-    {path: ':index', component: BookDetailComponent},
+    {path: ':index', 
+      component: BookDetailComponent,
+      children: [
+        {path: 'authors', component: BookAuthorsComponent }
+      ]
+    },
   ]},
   
   {path: '', pathMatch: 'full', redirectTo: 'dvds'},

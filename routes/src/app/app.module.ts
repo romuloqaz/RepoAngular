@@ -52,7 +52,8 @@ import { Routes, RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
 import { DvdDetailComponent } from './dvd/dvd-detail/dvd-detail.component';
 import { DvdFormComponent } from './dvd/dvd-form/dvd-form.component';
-import { BookDetailComponent } from './book/book-detail/book-detail.component'
+import { BookDetailComponent } from './book/book-detail/book-detail.component';
+import { BookAuthorsComponent } from './book/book-authors/book-authors.component'
 
 
 @NgModule({
@@ -64,6 +65,7 @@ import { BookDetailComponent } from './book/book-detail/book-detail.component'
     DvdDetailComponent,
     DvdFormComponent,
     BookDetailComponent,
+    BookAuthorsComponent,
     
   ],
   imports: [
