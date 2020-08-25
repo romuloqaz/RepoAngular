@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { BookService } from '../services/book.service'
+import { BookService } from '../services/book.service';
 import { Observable } from 'rxjs';
 import { Book } from '../models/book';
 
@@ -10,12 +10,12 @@ import { Book } from '../models/book';
 })
 export class BookComponent implements OnInit {
 
-  book$: Observable<Book[]>
+  books$: Observable<Book[]>;
 
   constructor(private bookService: BookService) { }
 
-  ngOnInit(): void {
-    this.book$ = this.bookService.books$;
+  ngOnInit() {
+    this.books$ = this.bookService.books$;
   }
 
 }

@@ -51,7 +51,8 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { Routes, RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
 import { DvdDetailComponent } from './dvd/dvd-detail/dvd-detail.component';
-import { DvdFormComponent } from './dvd/dvd-form/dvd-form.component'
+import { DvdFormComponent } from './dvd/dvd-form/dvd-form.component';
+import { BookDetailComponent } from './book/book-detail/book-detail.component'
 
 
 @NgModule({
@@ -62,6 +63,7 @@ import { DvdFormComponent } from './dvd/dvd-form/dvd-form.component'
     PageNotFoundComponent,
     DvdDetailComponent,
     DvdFormComponent,
+    BookDetailComponent,
     
   ],
   imports: [
