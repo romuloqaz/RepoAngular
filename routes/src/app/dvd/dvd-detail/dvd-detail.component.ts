@@ -13,6 +13,8 @@ export class DvdDetailComponent implements OnInit {
 
   dvd$: Observable<Dvd>;
 
+  title = null;
+
   constructor(
     private route: ActivatedRoute,
     private dvdService: DvdService,
@@ -21,7 +23,13 @@ export class DvdDetailComponent implements OnInit {
 
   ngOnInit(): void {
     let index: number = +this.route.snapshot.paramMap.get('index'); // + transforma em um num inteiro
-    this.dvd$ = this.dvdService.get(index)
+    this.dvd$ = this.dvdService.get(index);
+    this.route.paramMap
+      .subscribe((params: ParamMap) => {
+        if(params.has('title')){
+          this.title = params.get('title');
+        }
+      })
 
     // console.log("index: ", this.route.snapshot.paramMap.get('index')); //parametro fixo
 
