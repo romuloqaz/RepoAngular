@@ -53,6 +53,7 @@ import { Routes, RouterModule } from '@angular/router';
 const appRoutes : Routes = [
   {path: 'dvds', component: DvdComponent},
   {path: 'books', component: BookComponent},
+  {path: '', pathMatch: 'full', redirectTo: 'dvds'}
 ]
 
 @NgModule({
