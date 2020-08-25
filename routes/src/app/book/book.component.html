@@ -1,1 +1,8 @@
-<p>book works!</p>
+<mat-nav-list>
+    <h2 mat-sub-header>Book list</h2>
+    <a mat-list-item *ngFor="let b of book$ | async; let i=index" routerLink="/books/{{i}}">
+        <mat-icon mat-list-icon>library_books</mat-icon>
+        <h5 mat-line >{{b.title}}</h5>
+        <h4 mat-line >Pages: {{b.pages}}</h4>
+    </a>
+</mat-nav-list>
