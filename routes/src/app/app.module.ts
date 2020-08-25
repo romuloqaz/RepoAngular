@@ -44,9 +44,16 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { HttpClientModule } from '@angular/common/http';
 import { MatNativeDateModule } from '@angular/material/core';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+
 import { BookComponent } from './book/book.component';
 import { DvdComponent } from './dvd/dvd.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { Routes, RouterModule } from '@angular/router';
+
+const appRoutes : Routes = [
+  {path: 'dvds', component: DvdComponent},
+  {path: 'books', component: BookComponent},
+]
 
 @NgModule({
   declarations: [
@@ -100,7 +107,8 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     HttpClientModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    RouterModule.forRoot(appRoutes)
   ],
   providers: [],
   bootstrap: [AppComponent]
