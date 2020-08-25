@@ -1,1 +1,20 @@
-<p>eletronic-detail works!</p>
+<div  >
+    <div>
+      
+      <div *ngIf="eletronic$ | async as e">
+        <div>
+          <p>Name: {{e.name}}</p>
+          <p>Brand: {{e.brand}}</p>
+          <p>Price: {{e.price}}</p>
+          <p>Description: {{e.description}}</p>
+        </div>
+      </div>
+  
+  
+      <button (click)="back()">
+        
+        Back
+      </button> 
+  
+    </div>
+  </div>
