@@ -23,6 +23,7 @@ const appRoutes : Routes = [
     },
   ]},
   
+  { path: 'eletronics', loadChildren: './eletronics/eletronics.module#EletronicsModule'},
   {path: '', pathMatch: 'full', redirectTo: 'dvds'},
   {path: 'dvds/new', component: DvdFormComponent},
   {path: 'dvds/:index', component: DvdDetailComponent},

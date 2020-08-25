@@ -1,6 +1,6 @@
 <ul>
     <h2 >Electronics List</h2>
-    <a  *ngFor="let e of eletronics$ | async; let i=index" routerLink="/electronics/{{i}}" >
+    <a  *ngFor="let e of eletronics$ | async; let i=index" routerLink="/eletronics/{{i}}" >
       
       <h4 >{{e.name}}</h4>
       <h5 >Price: {{e.price}}</h5>

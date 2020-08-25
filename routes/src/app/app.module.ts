@@ -115,8 +115,9 @@ import { EletronicsModule } from './eletronics/eletronics.module'
     MatDatepickerModule,
     MatNativeDateModule,
     ReactiveFormsModule,
+    // EletronicsModule,
     AppRoutingModule,
-    EletronicsModule
+    
   ],
   providers: [],
   bootstrap: [AppComponent]
