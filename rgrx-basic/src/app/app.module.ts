@@ -8,6 +8,8 @@ import { PersonComponent } from './person/person.component';
 import { StoreModule } from '@ngrx/store';
 import { appReducers } from './store';
 
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -17,7 +19,10 @@ import { appReducers } from './store';
     BrowserModule,
     BrowserAnimationsModule,
     MaterialModule,
-    StoreModule.forRoot( appReducers )
+    StoreModule.forRoot( appReducers ),
+    StoreDevtoolsModule.instrument({
+      maxAge: 25
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]
