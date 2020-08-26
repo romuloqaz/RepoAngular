@@ -8,7 +8,7 @@ import { Product } from './models/product.model';
 })
 export class ProductService {
 
-  private productsCollection: AngularFirestoreCollection<Product> = this.afs.collection('producs');
+  private productsCollection: AngularFirestoreCollection<Product> = this.afs.collection('products');
 
   constructor(private afs: AngularFirestore) { }
 
@@ -17,6 +17,8 @@ export class ProductService {
   }
 
   addProduct(p: Product){
-    return this.productsCollection.add(p);
+    p.id = this.afs.createId();
+    // return this.productsCollection.add(p);
+    return this.productsCollection.doc(p.id).set(p);
   }
 }
