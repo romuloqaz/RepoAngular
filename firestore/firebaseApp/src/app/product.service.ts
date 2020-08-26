@@ -21,4 +21,12 @@ export class ProductService {
     // return this.productsCollection.add(p);
     return this.productsCollection.doc(p.id).set(p);
   }
+
+  deleteProduct(p: Product){
+    return this.productsCollection.doc(p.id).delete();
+  }
+
+  updateProduct(p: Product){
+    return this.productsCollection.doc(p.id).set(p);
+  }
 }

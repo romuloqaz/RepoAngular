@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ProductService } from '../product.service';
@@ -13,7 +13,9 @@ import { Observable } from 'rxjs';
 export class ProductsComponent implements OnInit {
 
   products$: Observable<Product[]>
-  displayedColumns = ['name','price','stock','operations']
+  displayedColumns = ['name','price','stock','operations'];
+
+  @ViewChild('name') productName: ElementRef;
 
   productForm = this.fb.group({
     id: [undefined],
@@ -39,7 +41,7 @@ export class ProductsComponent implements OnInit {
       this.addProduct(p);
     }
     else {
-      this.editProduct(p);
+      this.updateProduct(p);
     }
 
   }
@@ -47,15 +49,41 @@ export class ProductsComponent implements OnInit {
   addProduct(p: Product){
     return this.productService.addProduct(p)
       .then(()=> {
-        this.snackBar.open('Product add.', 'OK', {duration: 2000})
+        this.snackBar.open('Product add.', 'OK', {duration: 2000});
+        this.productForm.reset({name: '', stock: 0, price: 0, id: undefined});
+        this.productName.nativeElement.focus;
       })
       .catch(()=> {
         this.snackBar.open('Error on submiting', 'OK', {duration: 2000})
       })
   }
 
-  editProduct(p: Product){
+  updateProduct(p: Product){
+    this.productService.updateProduct(p)
+    .then(()=> {
+      this.snackBar.open('Product updated','OK', {duration: 2000});
+      this.productForm.reset({name: '', stock: 0, price: 0, id: undefined});
+        this.productName.nativeElement.focus;
+    })
+    .catch((e)=> {
+      console.log(e);
+      this.snackBar.open('Error when trying to updating the product', 'OK', {duration: 2000})
+    });
+  }
 
+  edit(p: Product){
+    this.productForm.setValue(p);
+  }
+
+  del(p: Product){
+    return this.productService.deleteProduct(p)
+    .then(()=> {
+      this.snackBar.open('Product has been removed','OK', {duration: 2000})
+    })
+    .catch((e)=> {
+      console.log(e);
+      this.snackBar.open('Error when trying to remove the product', 'OK', {duration: 2000})
+    });
   }
 
 }
