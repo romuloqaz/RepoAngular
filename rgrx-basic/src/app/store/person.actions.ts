@@ -1,6 +1,5 @@
 import { Action } from '@ngrx/store';
 import { Person } from '../person';
-import { type } from 'os';
 
 export enum PersonActionTypes {
     PERSON_ALL = '[PERSON_ALL] Get all people',
